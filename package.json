@@ -1,0 +1,26 @@
+{
+  "name": "metrics-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy:content": "env-cmd -e content node map_data.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shappoff/metrics-map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shappoff/metrics-map/issues"
+  },
+  "homepage": "https://github.com/shappoff/metrics-map#readme",
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  },
+  "dependencies": {
+    "algoliasearch": "^4.17.0"
+  }
+}
