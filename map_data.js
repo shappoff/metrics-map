@@ -8,8 +8,8 @@ const fs = require("fs");
 
 
 const run = async () => {
-    const client = algoliasearch(`${applicationID}`, `${searchOnlyAPIKey}`);
-    // const client = algoliasearch(applicationID, searchOnlyAPIKey);
+    // const client = algoliasearch(`${applicationID}`, `${searchOnlyAPIKey}`);
+    const client = algoliasearch(applicationID, searchOnlyAPIKey);
 
     const indexBorn = client.initIndex(`born`);
     const indexMarriage = client.initIndex(`marriage`);
