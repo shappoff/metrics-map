@@ -8,15 +8,16 @@ const fs = require("fs");
 
 
 const run = async () => {
-    const client = algoliasearch(applicationID, searchOnlyAPIKey);
+    const client = algoliasearch(`${applicationID}`, `${searchOnlyAPIKey}`);
+    // const client = algoliasearch(applicationID, searchOnlyAPIKey);
 
     const indexBorn = client.initIndex(`born`);
     const indexMarriage = client.initIndex(`marriage`);
     const indexDied = client.initIndex(`died`);
 
-    const {facets: bornFacets} = await indexBorn.search('', {hitsPerPage: 0, facets: ["churchTitle"]});
-    const {facets: marriageFacets} = await indexMarriage.search('', {hitsPerPage: 0, facets: ["churchTitle"]});
-    const {facets: diedFacets} = await indexDied.search('', {hitsPerPage: 0, facets: ["churchTitle"]});
+    const {facets: bornFacets} = await indexBorn.search('', {hitsPerPage: 0, facets: ["churchTitle"]}).catch((e) => console.error('bornError', e));
+    const {facets: marriageFacets} = await indexMarriage.search('', {hitsPerPage: 0, facets: ["churchTitle"]}).catch((e) => console.error('marriageError', e));
+    const {facets: diedFacets} = await indexDied.search('', {hitsPerPage: 0, facets: ["churchTitle"]}).catch((e) => console.error('diedError', e));
 
     const res = {};
 
